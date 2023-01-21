@@ -16,6 +16,8 @@ ____________  property custom _________________
     --black: #141414;
     --white: #fff;
     --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+    /*transtion*/
+    --transition: all .4s ease-out;
 }
 
 
@@ -51,17 +53,181 @@ html{
   }
 body{
     font-family: var(--font-quicksand);
+    color: var(--black);
 }
-
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
 /**
 ____________  classes reseud _________________
 **/
+/*btn*/
+.btn{
+    position: relative;
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    max-width: max-content;
+    border: .1rem solid var(--primary-color);
+    color: var(--black);
+    background: var(--secondary);
+    padding: 1.2rem 4.5rem;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: .5rem;
+  }
+  
+  .btn::before{
+    content: "";
+    position: absolute;
+    bottom: 100%; left: 50%;
+    transform: translateX(-50%);
+    width: 200%; height: 200%;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    transition: 500ms ease;
+    z-index: -1;
+  }
+  
+  .btn .text{
+    transition: 250ms ease;
+  }
+  
+  .btn .text-2{
+    position: absolute;
+    top: 100%; left: 50%;
+    transform: translateX(-50%);
+    min-width: max-content;
+    color: var(--secondary);
+  }
+  
+  .btn:is(:hover, :focus-visible)::before{
+    bottom: -50%;
+  }
+  
+  .btn:is(:hover, :focus-visible) .text-1{
+    transform: translateY(-4rem);
+  }
+  
+  .btn:is(:hover, :focus-visible) .text-2{
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
 
 /**
 ____________  header  _________________
 **/
 
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 9%;
 
+}
+.header .navbrand{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: var(--black);
+}
+.header .navbrand i{
+    color: var(--primary-color);
+    padding-right: .5rem;
+}
+.header .navbar a{
+    font-size: 1.7rem;
+    color: var(--black);
+    margin: 0 1rem;
+    padding-block: 1rem;
+    text-transform: capitalize;
+    font-weight: 500;
+    transition: var(--transition);
+}
+.header .navbar a:hover{
+    color: var(--primary-color);
+}
+.header .navbar .hover-underline{
+    position: relative;
+    max-width: max-content;/*tamanho do conteudo*/
+}
+/*antes*/
+.header .navbar .hover-underline::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: .5rem;
+    border-block: .1rem solid var(--primary-color);
+    transform: scaleX(0.2);
+    opacity: 0;/*não aparecer*/
+    transition: 500ms ease;
+}
+.header .navbar .hover-underline:is(:hover, :focus-visible)::after{
+    transform: scaleX(1);
+    opacity: 1;
+}
+.header .icons div{
+    font-size: 2.5rem;
+    margin-left: 1.7rem;
+    cursor: pointer;
+    color: var(--black);
+    transition: .5s;
+}
+.header .icons div:hover{
+    color: var(--primary-color);
+}
+#menu-btn{
+    display: none;
+}
+.header .login-form{
+    position: absolute;
+    top: 115%;
+    right: -105%;
+    background-color: var(--white);
+    box-shadow: .5rem;
+    width: 35rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+}
+.header .login-form.active{
+    right: 2rem;
+    transition: .4s linear;
+}
+.header .login-form .box{
+    font-size: 1.5rem;
+    margin: .7rem 0;
+    border: .1rem solid rgba(0, 0, 0, 0.1);
+    padding: 1rem 1.2rem;
+    color: var(--black);
+    text-decoration: none;
+    width: 100%;
+}
+.header .login-form .remember{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin: .7rem 0;
+}
+.header .login-form .remember label{
+    font-size: 1.5rem;
+    color: var(--black);
+    cursor: pointer;
+    text-transform: capitalize;
+}
 /**
 ____________  media queries  _________________
 **/
