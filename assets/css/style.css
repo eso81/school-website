@@ -9,6 +9,13 @@ ____________  property custom _________________
 :root{
     /*typography*/
     --font-quicksand: 'Quicksand', sans-serif;
+
+    /*colors*/
+    --primary-color: #12c2b9;
+    --secondary: #dbfffe;
+    --black: #141414;
+    --white: #fff;
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
 
@@ -21,8 +28,27 @@ ____________  reset _________________
     box-sizing: border-box;
 }
 html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
     scroll-behavior: smooth;
-}
+  }
+  
+  html::-webkit-scrollbar{
+    width: 1rem;
+  }
+  
+  html::-webkit-scrollbar-track{
+    background: transparent;
+  }
+  
+  html::-webkit-scrollbar-thumb{
+    background: var(--primary-color);
+  }
+  
+  section{
+    padding: 5rem 7%;
+  }
 body{
     font-family: var(--font-quicksand);
 }
