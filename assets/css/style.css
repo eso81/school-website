@@ -1,0 +1,46 @@
+/**
+____________  google fonts _________________
+**/
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+/**
+____________  property custom _________________
+**/
+:root{
+    /*typography*/
+    --font-quicksand: 'Quicksand', sans-serif;
+}
+
+
+/**
+____________  reset _________________
+**/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: var(--font-quicksand);
+}
+
+/**
+____________  classes reseud _________________
+**/
+
+/**
+____________  header  _________________
+**/
+
+
+/**
+____________  media queries  _________________
+**/
+
+
+/**
+____________   _________________
+**/
